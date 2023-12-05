@@ -1,0 +1,20 @@
+import numpy as np
+
+# Massivimiz:
+ededi_massiv = np.array([-2, 3, -5, 7, -11, 13, -17, 19, -23, 29])
+
+# Faylı yaratmaq və müsbət ədədləri yazmaq üçün
+with open('ededler.txt', 'w') as file:
+    cem = 0
+    for eded in ededi_massiv:
+        if eded > 0:
+            file.write(str(eded) + '\n')
+            cem += eded
+
+# Yeni faylı oxumaq və cəmini yazaq
+with open('ededler.txt', 'r') as file:
+    yeni_fayl_icerik = file.read().splitlines()
+    yeni_fayl_icerik = [int(eded) for eded in yeni_fayl_icerik]
+
+    print("Yeni fayl ədədləri:", yeni_fayl_icerik)
+    print("Cəmi:", cem)
